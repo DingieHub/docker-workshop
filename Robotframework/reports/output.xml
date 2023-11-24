@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231120 18:49:43.010" rpa="false" schemaversion="4">
+<suite id="s1" name="Pun" source="/tmp/pun.robot">
+<test id="s1-t1" name="Get Pun By ID" line="20">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://punapi.rest/api/pun/2</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20231120 18:49:43.819" level="INFO">GET Request : url=https://punapi.rest/api/pun/2 (redirected) 
+ path_url=/api/pun/2 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231120 18:49:43.819" level="INFO">GET Response : url=https://www.punapi.rest/api/pun/2 
+ status=200, reason=OK 
+ headers={'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version', 'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT', 'Access-Control-Allow-Origin': '*', 'Age': '0', 'Cache-Control': 'public, max-age=0, must-revalidate', 'Connection': 'keep-alive', 'Content-Length': '77', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Mon, 20 Nov 2023 18:49:43 GMT', 'Etag': '"4dnw7gyxnc23"', 'Server': 'Vercel', 'Strict-Transport-Security': 'max-age=63072000', 'X-Matched-Path': '/api/pun/[id]', 'X-Vercel-Cache': 'MISS', 'X-Vercel-Id': 'fra1::iad1::p2f5n-1700506183318-0413facc3f11'} 
+ body={"id":2,"pun":"I would avoid the sushi if I was you. It’s a little fishy."} 
+ </msg>
+<msg timestamp="20231120 18:49:43.820" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231120 18:49:43.056" endtime="20231120 18:49:43.821"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Response: ${response}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231120 18:49:43.822" level="INFO">Response: &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231120 18:49:43.821" endtime="20231120 18:49:43.823"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231120 18:49:43.826" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231120 18:49:43.823" endtime="20231120 18:49:43.827"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${json_response}</var>
+<arg>json.loads('''${response.content}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231120 18:49:43.829" level="INFO">${json_response} = {'id': 2, 'pun': 'I would avoid the sushi if I was you. Itâ\x80\x99s a little fishy.'}</msg>
+<status status="PASS" starttime="20231120 18:49:43.827" endtime="20231120 18:49:43.829"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${json_response['id']}</arg>
+<arg>2</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231120 18:49:43.830" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231120 18:49:43.829" endtime="20231120 18:49:43.830"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${json_response['pun']}</arg>
+<arg>I would avoid the sushi if I was you. Itâ\x80\x99s a little fishy.</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20231120 18:49:43.830" endtime="20231120 18:49:43.830"/>
+</kw>
+<status status="PASS" starttime="20231120 18:49:43.056" endtime="20231120 18:49:43.830"/>
+</test>
+<status status="PASS" starttime="20231120 18:49:43.012" endtime="20231120 18:49:43.831"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Pun">Pun</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
