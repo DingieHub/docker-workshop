@@ -1,0 +1,20 @@
+# postcode_test.tavern.yaml
+
+test_name: "Happy Flow Test for postcode.nl API"
+
+stages:
+  - name: "Get information for a valid postal code"
+    request:
+      url: "https://api.postcode.nl/rest/addresses/{postal_code}"
+      method: "GET"
+      headers:
+        Authorization: "Bearer Ick1NpngIm1t2iuYss8j91o3LU8mnRbF2Ig5Uj4a"  # Replace with your actual API key
+    response:
+      status_code: 200
+      body:
+        - status: "ok"
+          results:
+            - dutchAddress:
+                municipality: "Amsterdam"
+                postcode: "{postal_code}"
+                province: "Noord-Holland"
