@@ -1,0 +1,20 @@
+# docker-compose file that starts service flask-api-docker and client curlimages/curl:latest
+version: '3'
+services:
+  flask-api-docker:
+    build:
+      context: ../Apps/flask-api-docker
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    restart: always
+
+  client:
+    image: curlimages/curl:latest
+    depends_on:
+      - flask-api-docker
+    command: >
+      sh -c "sleep 5 && \
+      curl -X POST -H 'Content-Type: application/json' -d '{\"key\": \"value\"}' http://flask-api-docker:5001/data && \
+      curl -X PUT -H 'Content-Type: application/json' -d '{\"updated_key\": \"updated_value\"}' http://flask-api-docker:5001/data/123"
+      exit 0
