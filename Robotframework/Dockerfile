@@ -13,5 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
-# Run tavern when the container launches
+# Run a robot test when the container launches
 CMD ["robot", "postcode_test.robot"]
