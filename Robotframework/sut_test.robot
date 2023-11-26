@@ -8,24 +8,25 @@ ${BASE_URL}        http://flask-api-docker:5001 # Container moet bestaan met net
 
 *** Test Cases ***
 Verify Hello Endpoint
-    ${response}=    Get Request    ${BASE_URL}/
+    ${response}=    Get    ${BASE_URL}/
     Should Be Equal As Strings    ${response.status_code}    200
-    Should Contain    ${response.json()}    Hello
+    Should Contain    ${response.json()}    Hello, this is your API!
 
 Verify Health Endpoint
-    ${response}=    Get Request    ${BASE_URL}/health
+    ${response}=    Get    ${BASE_URL}/health
     Should Be Equal As Strings    ${response.status_code}    200
     Should Contain    ${response.text}    I am healthy
 
-Verify Data POST and PUT Endpoints
+Verify Data POST Endpoint
     ${data}=    Set Variable    {"key": "value"}
     
     # POST request
-    ${post_response}=    Post Request    ${BASE_URL}/data    json=${data}
+    ${post_response}=    Post    ${BASE_URL}/data    json=${data}
     Should Be Equal As Strings    ${post_response.status_code}    201
     Should Contain    ${post_response.json()}    ${data}
-    
+
+Verify Data PUT Endpoint
     # PUT request
-    ${put_response}=    Put Request    ${BASE_URL}/data/123    json=${data}
+    ${put_response}=    Put    ${BASE_URL}/data/123    json=${data}
     Should Be Equal As Strings    ${put_response.status_code}    200
     Should Contain    ${put_response.json()}    {"id": "123", "data": ${data}}
