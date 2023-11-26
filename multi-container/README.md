@@ -7,9 +7,8 @@ docker-compose -f dc-client-curl-service-flask.yml up
 ## Stop specifieke docker-compose
 docker-compose -f dc-client-curl-service-flask.yml down
 
-## stop wanneer abort signaal
-Automatically stop when container aborted docker-compose:
-> docker-compose -f dc-client-curl-service-flask.yml up --abort-on-container-exit
+## Stop wanneer abort signaal
+docker-compose -f dc-client-curl-service-flask.yml up --abort-on-container-exit
 
-## Stop alles wanneer 'client' stopped
+## Stop alles wanneer 'client' stopt
 docker-compose -f dc-client-curl-service-flask.yml up --exit-code-from client
