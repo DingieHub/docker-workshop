@@ -12,3 +12,5 @@ docker-compose -f dc-client-curl-service-flask.yml up --abort-on-container-exit
 
 ## Stop alles wanneer 'client' stopt
 docker-compose -f dc-client-curl-service-flask.yml up --exit-code-from client
+
+docker-compose -f dc-client-robottest-service-flask.yml up --exit-code-from client
