@@ -14,4 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 80
 
 # Run a robot test when the container launches
+# Examples:
+# CMD ["robot", "--outputdir", "/tmp/reports", "/tmp/pun.robot"]
+# CMD ["robot", "--outputdir", "/tmp/reports", "-t", "Get Pun By ID", "/tmp/pun.robot"]
 CMD ["robot", "postcode_test.robot"]
