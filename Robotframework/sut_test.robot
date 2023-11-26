@@ -4,7 +4,7 @@ Library           RequestsLibrary
 Library           String
 
 *** Variables ***
-${BASE_URL}        http://localhost:5001
+${BASE_URL}        http://flask-api-docker:5001 # Container moet bestaan met netwerk configuratie
 
 *** Test Cases ***
 Verify Hello Endpoint
