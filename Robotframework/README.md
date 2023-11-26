@@ -27,4 +27,5 @@ root@dee980ebaa46:/app# robot --version
 > robot --outputdir /tmp/reports /tmp/pun.robot
 > 
 > robot --outputdir /tmp/reports -t "Get Pun By ID" /tmp/pun.robot
-> 
+>
+> robot --outputdir /tmp/reports /tmp/sut_test.robot
