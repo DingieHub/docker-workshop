@@ -14,6 +14,6 @@ services:
     depends_on:
       - flask-api-docker
     volumes:
-      - ./tests:/tests
+      - .:/tests
     command: >
       sh -c "robot --outputdir /tests/reports --loglevel DEBUG --variable ENV:dev /tests""
