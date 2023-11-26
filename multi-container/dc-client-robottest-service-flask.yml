@@ -1,0 +1,19 @@
+# my-compose.yml
+version: '3'
+services:
+  flask-api-docker:
+    build:
+      context: ./flask-api-docker
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    restart: always
+
+  test-service:
+    image: robotframework/robotframework:latest
+    depends_on:
+      - flask-api-docker
+    volumes:
+      - ./tests:/tests
+    command: >
+      sh -c "robot /tests"
