@@ -9,7 +9,7 @@ docker pull fandratt/robotframework
 ## Run
 
 ### Template
-docker run -it -v <host-dir>:<container-dir> <container-naam> <command>
+docker run -it -v \<host-dir\>:\<container-dir\> \<container-naam\> \<command\>
 
 ### Windows
 docker run -it -v ${PWD}:/tmp robotframework/rfdocker bash
