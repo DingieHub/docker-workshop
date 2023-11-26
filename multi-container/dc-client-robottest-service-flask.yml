@@ -9,7 +9,7 @@ services:
       - "5001:5001"
     restart: always
 
-  test-service:
+  client:
     image: robotframework/robotframework:latest
     depends_on:
       - flask-api-docker
