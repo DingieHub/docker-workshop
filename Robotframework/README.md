@@ -1,9 +1,16 @@
 ## Docker bron
 
-X86: docker pull robotframework/rfdocker
-X86+ARM64: docker pull fandratt/robotframework
+### X86
+docker pull robotframework/rfdocker
+
+### X86+ARM64
+docker pull fandratt/robotframework
 
 ## Run
+
+### Template
+docker run -it -v <host-dir>>:<container-dir> <container-naam> <command>
+
 ### Windows
 docker run -it -v ${PWD}:/tmp robotframework/rfdocker bash
 
