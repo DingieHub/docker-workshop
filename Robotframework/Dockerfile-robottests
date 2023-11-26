@@ -1,0 +1,8 @@
+# Dockerfile for test-service
+FROM robotframework/rfdocker
+
+# Create the /tests folder
+RUN mkdir /tests
+
+# Copy tests from the host to the /tests folder inside the container
+COPY tests /tests
