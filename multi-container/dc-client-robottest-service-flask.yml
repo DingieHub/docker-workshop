@@ -16,4 +16,4 @@ services:
     volumes:
       - ../Robotframework:/tests
     command: >
-      sh -c "robot /tests"
+      sh -c "robot --outputdir /tests/reports --loglevel DEBUG --variable ENV:dev /tests""
