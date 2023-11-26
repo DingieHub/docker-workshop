@@ -19,7 +19,7 @@ docker run -it -v $(pwd):/tmp fandratt/robotframework bash
 
 ### Check robot
 root@dee980ebaa46:/app# robot --version
-Robot Framework 6.1.1 (Python 3.10.12 on linux)
+> Robot Framework 6.1.1 (Python 3.10.12 on linux)
 
 ### Run robot tests
 robot --outputdir /tmp/reports /tmp/postcode_test.robot
