@@ -23,5 +23,8 @@ root@dee980ebaa46:/app# robot --version
 
 ### Run robot tests
 > robot --outputdir /tmp/reports /tmp/postcode_test.robot
+> 
 > robot --outputdir /tmp/reports /tmp/pun.robot
+> 
 > robot --outputdir /tmp/reports -t "Get Pun By ID" /tmp/pun.robot
+> 
