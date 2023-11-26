@@ -17,6 +17,8 @@ docker run -it -v ${PWD}:/tmp robotframework/rfdocker bash
 ### Linux/Mac
 docker run -it -v $(pwd):/tmp fandratt/robotframework bash
 
+docker run --name tests-container --network mynetwork  -it -v $(pwd):/tmp fandratt/robotframework bash
+
 ### Check robot
 root@dee980ebaa46:/app# robot --version
 > Robot Framework 6.1.1 (Python 3.10.12 on linux)
