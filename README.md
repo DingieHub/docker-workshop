@@ -1,5 +1,5 @@
 # docker-workshop
-All files pertaining to the docker-workshop for Haystaq
+Zie hieronder een uitleg hoe een container te bouwen voor een specifieke app
 
 # Een app-container draaien
 
